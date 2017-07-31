@@ -10,8 +10,7 @@ Computer randomly selects a letter.
 
 Letter gets stored in variable. > Computer's Choice
 
-User is asked in directions to guess what letter the
-computer is thinking of.
+User is asked in directions to guess what letter the computer is thinking of.
 
 User presses a letter on keyboard.
 
