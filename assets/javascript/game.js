@@ -8,11 +8,7 @@ var computerChoice;
 
 
 //to initiate the game
-var playAgain = true;
-
-if (playAgain) {
-	theGame();
-}
+theGame();
 
 //letter randomizer
 function theGame() {
@@ -21,7 +17,7 @@ function theGame() {
 	var randomLetter = alphabet[Math.floor(Math.random() * 26)];
 	var computerChoice = randomLetter;
 
-	console.log(computerChoice);
+	console.log(computerChoice); //test
 		
 
 	checkIfCorrect();
