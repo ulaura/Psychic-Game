@@ -40,16 +40,13 @@ function theGame() {
 				wins = wins + 1;
 				document.getElementById("your-wins").innerHTML = wins;
 
-				guessesLeft = 9; //reset variable
-				yourGuess = [];  //reset array so it's empty
-				document.getElementById("guesses-left").innerHTML = guessesLeft;  //reset display on screen
-				document.getElementById("your-guesses").innerHTML = yourGuess;    //reset display on screen
-				theGame(); //restart the game with new computerChoice. 
+				resetGame();
+
 			} else {
 				guessesLeft = guessesLeft - 1;
 				
 				document.getElementById("guesses-left").innerHTML = guessesLeft; 
-				yourGuess.push(userChoice); 
+				yourGuess.push(userChoice); //append user's choice to array yourGuess
 
 				console.log("Your guesses so far: " + yourGuess); //test
 
@@ -62,11 +59,7 @@ function theGame() {
 						losses = losses + 1
 						document.getElementById("your-losses").innerHTML = losses;
 
-						guessesLeft = 9; //reset variable
-						yourGuess = [];  //reset array so it's empty
-						document.getElementById("guesses-left").innerHTML = guessesLeft;  //reset display on screen
-						document.getElementById("your-guesses").innerHTML = yourGuess;    //reset display on screen
-						theGame(); //restart the game with new computerChoice.
+						resetGame();
 
 					} else {
 						console.log("Incorrect. Try again");
@@ -76,6 +69,15 @@ function theGame() {
 
 			}
 		}
+	}
+
+	function resetGame() {
+		guessesLeft = 9; //reset variable
+		yourGuess = [];  //reset array so it's empty
+		document.getElementById("guesses-left").innerHTML = guessesLeft;  //reset display on screen
+		document.getElementById("your-guesses").innerHTML = yourGuess;    //reset display on screen
+		theGame(); //restart the game with new computerChoice.
+
 	}
 
 }
