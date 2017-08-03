@@ -30,9 +30,12 @@ function theGame() {
 			//then turns it into a lowercase string.
 			var userChoice = String.fromCharCode(event.keyCode).toLowerCase();
 			
+			//potentially add an if statement to prevent letters that were
+			//previously guessed from being counted against the user
 
 			if (userChoice === computerChoice) {
 				console.log("You win."); //test
+				alert("You win!");
 				wins = wins + 1;
 				document.getElementById("your-wins").innerHTML = wins;
 
@@ -48,17 +51,18 @@ function theGame() {
 
 				document.getElementById("your-guesses").innerHTML = yourGuess;
 
-				console.log(guessesLeft);
+				console.log("Guesses Left: " + guessesLeft); //test
 
 					if (guessesLeft === 0) {
-						console.log("YOU LOSE.");
+						console.log("YOU LOSE."); //test
+						alert("YOU LOSE!");
 						losses = losses + 1
 						document.getElementById("your-losses").innerHTML = losses;
 
 						resetGame();
 
 					} else {
-						console.log("Incorrect. Try again");
+						console.log("Incorrect. Try again"); //test
 						checkIfCorrect();
 						
 					}
@@ -77,6 +81,7 @@ function theGame() {
 	}
 
 }
+
 
 
 
