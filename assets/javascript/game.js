@@ -54,36 +54,44 @@ function theGame() {
 
 				resetGame();
 
-			//if the user guess wrong
+
+			//if the user guesses wrong
 			} else {
-				guessesLeft = guessesLeft - 1;
-				
-				document.getElementById("guesses-left").innerHTML = guessesLeft; 
-				yourGuess.push(userChoice); //append user's choice to array yourGuess
 
-				console.log("Your guesses so far: " + yourGuess); //test
+				//if loop to stop user from guess a letter they already guessed
+				//and to stop the guesses counter from being deducted for a previous guess
+				if (yourGuess.indexOf(userChoice) >=0) {
+					alert("You already guessed that!");
 
-				document.getElementById("your-guesses").innerHTML = yourGuess;
+				} else {
+					guessesLeft = guessesLeft - 1;
+					
+					document.getElementById("guesses-left").innerHTML = guessesLeft; 
+					yourGuess.push(userChoice); //append user's choice to array yourGuess
 
-				console.log("Guesses Left: " + guessesLeft); //test
+					console.log("Your guesses so far: " + yourGuess); //test
 
-					//when the user runs out of guesses
-					if (guessesLeft === 0) {
-						console.log("YOU LOSE."); //test
-						alert("YOU LOSE!");
-						losses = losses + 1
-						document.getElementById("your-losses").innerHTML = losses;
+					document.getElementById("your-guesses").innerHTML = yourGuess;
 
-						resetGame();
+					console.log("Guesses Left: " + guessesLeft); //test
 
-					} else {
-						console.log("Incorrect. Try again"); //test
-						checkIfCorrect();
-						
-					}
+						//when the user runs out of guesses
+						if (guessesLeft === 0) {
+							console.log("YOU LOSE."); //test
+							alert("YOU LOSE!");
+							losses = losses + 1
+							document.getElementById("your-losses").innerHTML = losses;
 
+							resetGame();
+
+						} else {
+							console.log("Incorrect. Try again"); //test
+							checkIfCorrect();
+							
+						}
+
+				}
 			}
-		}
 	}
 
 	function resetGame() {
@@ -95,8 +103,8 @@ function theGame() {
 
 	}
 
+	}
+
 }
-
-
 
 
