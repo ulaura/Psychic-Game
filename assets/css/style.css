@@ -8,7 +8,7 @@ h1 {
 	font-family: 'Expletus Sans', cursive;
 	font-size: 50px;
 	color: #e8d50b;
-	text-shadow: 0 0 10px #fff26b;
+	text-shadow: 0 0 15px #fff26b;
 }
 
 /*to make a portion of the h1 header smaller*/
@@ -16,10 +16,11 @@ h1 {
 	font-size: 45px;
 }
 
-/*to undo default border-bottom styling for .page-header
+/*to undo default border-bottom and margin-top styling for .page-header
 in Bootstrap*/
 .page-header {
 	border-bottom: 0 black;
+	margin-top: 0;
 }
 
 h3 {
@@ -49,11 +50,8 @@ p {
 	font-size: 10px;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 414px) {
 
-	.page-header {
-		margin-top: 0;
-	}
 
 	h1 {
 		font-size: 25px;
