@@ -29,11 +29,15 @@ function theGame() {
 			//turns user's unicode into corresponding alphanumeric key,
 			//then turns it into a lowercase string.
 			var userChoice = String.fromCharCode(event.keyCode).toLowerCase();
-			
-			//potentially add an if statement to prevent letters that were
-			//previously guessed from being counted against the user
 
-			if (userChoice === computerChoice) {
+
+			//if statement to prevent user from choosing a key that's not part of
+			//the alphabet. a = unicode 65, z = unicode 90.
+			if (event.keyCode < 65 || event.keyCode > 90) {
+				alert("Invalid Entry");
+
+			//if the user guesses correctly
+			} else if (userChoice === computerChoice) {
 				console.log("You win."); //test
 				
 				//switches still image of black box to animated gif of light bulb flashing
@@ -50,6 +54,7 @@ function theGame() {
 
 				resetGame();
 
+			//if the user guess wrong
 			} else {
 				guessesLeft = guessesLeft - 1;
 				
@@ -62,6 +67,7 @@ function theGame() {
 
 				console.log("Guesses Left: " + guessesLeft); //test
 
+					//when the user runs out of guesses
 					if (guessesLeft === 0) {
 						console.log("YOU LOSE."); //test
 						alert("YOU LOSE!");
