@@ -11,6 +11,9 @@ h1 {
 	text-shadow: 0 0 10px #fff26b;
 }
 
+#smaller-font {
+	font-size: 45px;
+}
 
 /*to undo default border-bottom styling for .page-header
 in Bootstrap*/
@@ -35,3 +38,10 @@ p {
 }
 
 
+@media screen and (min-width: 320px) {
+	
+	#smaller-font {
+		font-size: 40px;
+	}
+	
+}
