@@ -55,7 +55,7 @@ function theGame() {
 				resetGame();
 
 
-			//if the user guesses wrong
+			//if the user guesses wrong...
 			} else {
 
 				//if loop to stop user from guess a letter they already guessed
