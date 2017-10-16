@@ -72,21 +72,7 @@ function theGame() {
 
 				console.log("Guesses Left: " + guessesLeft); //test
 
-					//when the user runs out of guesses
-					if (guessesLeft === 0) {
-						console.log("YOU LOSE."); //test
-						alert("YOU LOSE!");
-						losses = losses + 1
-						document.getElementById("your-losses").innerHTML = losses;
-
-						resetGame();
-
-					} else {
-						console.log("Incorrect. Try again"); //test
-						checkIfCorrect();
-						
-					}
-
+				noGuessesLeft();
 			}
 		}
 	}
@@ -97,6 +83,22 @@ function theGame() {
 		document.getElementById("guesses-left").innerHTML = guessesLeft;  //reset display on screen
 		document.getElementById("your-guesses").innerHTML = yourGuess;    //reset display on screen
 		theGame(); //restart the game with new computerChoice.
+
+	}
+
+	function noGuessesLeft() {
+		if (guessesLeft === 0) {
+			console.log("YOU LOSE."); //test
+			alert("YOU LOSE!");
+			losses = losses + 1
+			document.getElementById("your-losses").innerHTML = losses;
+
+			resetGame();
+
+		} else {
+			console.log("Incorrect. Try again"); //test
+			checkIfCorrect();
+		}
 
 	}
 
