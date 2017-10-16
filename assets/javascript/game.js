@@ -10,16 +10,15 @@ var computerChoice;
 //to initiate the game
 theGame();
 
-//letter randomizer
-function theGame() {
 
+function theGame() {
+	//letter randomizer
 	var alphabet = "abcdefghijklmnopqrstuvwxyz";
 	var randomLetter = alphabet[Math.floor(Math.random() * 26)];
 	var computerChoice = randomLetter;
 
 	console.log(computerChoice); //test
 		
-
 	checkIfCorrect();
 
 	function checkIfCorrect() {
@@ -35,6 +34,11 @@ function theGame() {
 			//the alphabet. a = unicode 65, z = unicode 90.
 			if (event.keyCode < 65 || event.keyCode > 90) {
 				alert("Invalid Entry");
+
+			//else/if statement to stop user from guess a letter they already guessed
+			//and to stop the guesses counter from being deducted for a previous guess
+			} else if (yourGuess.indexOf(userChoice) >=0) {
+				alert("You already guessed that!");
 
 			//if the user guesses correctly
 			} else if (userChoice === computerChoice) {
@@ -57,41 +61,34 @@ function theGame() {
 
 			//if the user guesses wrong...
 			} else {
+				guessesLeft = guessesLeft - 1;
+				
+				document.getElementById("guesses-left").innerHTML = guessesLeft; 
+				yourGuess.push(userChoice); //append user's choice to array yourGuess
 
-				//if loop to stop user from guess a letter they already guessed
-				//and to stop the guesses counter from being deducted for a previous guess
-				if (yourGuess.indexOf(userChoice) >=0) {
-					alert("You already guessed that!");
+				console.log("Your guesses so far: " + yourGuess); //test
 
-				} else {
-					guessesLeft = guessesLeft - 1;
-					
-					document.getElementById("guesses-left").innerHTML = guessesLeft; 
-					yourGuess.push(userChoice); //append user's choice to array yourGuess
+				document.getElementById("your-guesses").innerHTML = yourGuess;
 
-					console.log("Your guesses so far: " + yourGuess); //test
+				console.log("Guesses Left: " + guessesLeft); //test
 
-					document.getElementById("your-guesses").innerHTML = yourGuess;
+					//when the user runs out of guesses
+					if (guessesLeft === 0) {
+						console.log("YOU LOSE."); //test
+						alert("YOU LOSE!");
+						losses = losses + 1
+						document.getElementById("your-losses").innerHTML = losses;
 
-					console.log("Guesses Left: " + guessesLeft); //test
+						resetGame();
 
-						//when the user runs out of guesses
-						if (guessesLeft === 0) {
-							console.log("YOU LOSE."); //test
-							alert("YOU LOSE!");
-							losses = losses + 1
-							document.getElementById("your-losses").innerHTML = losses;
+					} else {
+						console.log("Incorrect. Try again"); //test
+						checkIfCorrect();
+						
+					}
 
-							resetGame();
-
-						} else {
-							console.log("Incorrect. Try again"); //test
-							checkIfCorrect();
-							
-						}
-
-				}
 			}
+		}
 	}
 
 	function resetGame() {
@@ -103,8 +100,7 @@ function theGame() {
 
 	}
 
-	}
-
 }
+
 
 
